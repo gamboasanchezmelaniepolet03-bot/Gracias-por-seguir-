@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <h1 style="color: #000000; text-align: center; font-family: 'Segoe UI', sans-serif;font-size: 50px;">
+ GRACIAR POR EXISTIR
+</h1>
+    <style>
+        :root {
+            --color-sobre: #e84393; /* Un rosa más fuerte para que resalte */
+            --color-interior: #ffadd6;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #FFBAC4; /* Tu fondo rosa */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
+
+        .musica {
+            margin-bottom: 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .contenedor-sobre {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: var(--color-sobre);
+            cursor: pointer;
+            border-radius: 0 0 10px 10px;
+            z-index: 1;
+        }
+
+        .tapa {
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-top: 100px solid var(--color-sobre);
+            transform-origin: top;
+            transition: transform 0.5s;
+            z-index: 3;
+        }
+
+        .contenedor-sobre:hover .tapa {
+            transform: rotateX(180deg);
+        }
+
+        .fotos-container {
+            margin-top: 50px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tarjeta-foto {
+            width: 150px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            display: none;
+        }
+
+        .tarjeta-foto img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <div class="musica">
+        <audio controls>
+            <source src="Caifanes - Viento (Cover Audio).mp3" type="audio/mpeg">
+            Tu navegador no soporta el audio.
+        </audio>
+    </div>
+
+    <div class="contenedor-sobre" onclick="abrirFotos()">
+        <div class="tapa"></div>
+        <div style="position:absolute; bottom:10px; width:100%; text-align:center; color:white;">Haz clic para abrir</div>
+    </div>
+
+    <div class="fotos-container" id="galeria">
+        <div class="tarjeta-foto">
+            <img src="foto1.jpeg" alt="Foto 1">
+            <p>    Te amo  </p>
+        </div>
+        <div class="tarjeta-foto">
+            <img src="foto2.jpeg" alt="Foto 2">
+            <p>Gracias por ser tú</p>
+        </div>
+        <div class="fotos-container" id="galeria">
+        <div class="tarjeta-foto">
+            <img src="foto3.jpeg" alt="Foto 3">
+            <p>    Te extrañó </p>
+        </div>
+        <div class="tarjeta-foto">
+            <img src="foto4.jpeg" alt="Foto 4">
+            <p>Eres lo mejor que puede existir</p>
+        </div>
+    </div>
+
+    <script>
+        function abrirFotos() {
+            const fotos = document.querySelectorAll('.tarjeta-foto');
+            fotos.forEach((foto, index) => {
+                setTimeout(() => {
+                    foto.style.display = 'block';
+                }, index * 400);
+            });
+        }
+    </script>
+</body>
+</html>

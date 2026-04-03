@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eres y serás lo mejor que existe en esta vida y las que siguen siempre.</title>
+    <style>
+        :root {
+            --color-amor: #ff85a2;
+            --color-fondo: #E8FDFF;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: var(--color-fondo);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Pantalla de Bloqueo */
+        #bloqueo {
+            position: fixed;
+            top: 0; left: 0; z-index: 100;
+            background: var(--color-fondo);
+            width: 100%; height: 100%;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+        }
+
+        .input-clave {
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid var(--color-amor);
+            margin-bottom: 10px;
+            outline: none;
+        }
+
+        /* Contenedor de Galería */
+        #contenido {
+            display: none; /* Oculto hasta poner clave */
+            width: 100%;
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        /* Estilo de las Tarjetas Individuales */
+        .card {
+            perspective: 1000px;
+            width: 250px;
+            height: 350px;
+            cursor: pointer;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .card-front img {
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            background: #fff0f3;
+            font-size: 0.9rem;
+            color: #444;
+            overflow-y: auto;
+        }
+
+        /* Botón Spotify */
+        .spotify-section {
+            margin: 50px 0;
+        }
+
+        .spotify-btn {
+            background-color: #80FFC2;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .spotify-btn:hover {
+            transform: scale(1.1);
+            background-color: #1ed760;
+        }
+    </style>
+</head>
+<body>
+       <div class="musica">
+        <audio controls>
+            <source src="Caifanes - Viento (Cover Audio).mp3" type="audio/mpeg">
+            Tu navegador no soporta el audio.
+        </audio>
+    </div>
+
+    <div id="bloqueo">
+        <h2>El primer día que te vi:</h2>
+        <input type="password" id="pass" class="input-clave">
+        <button onclick="validar()" style="padding: 10px 20px; border-radius: 10px; border: none; background: var(--color-amor); color: white;">Entrar</button>
+    </div>
+
+    <div id="contenido">
+        <h1>Los mejores 4 meses que pude vivir</h1>
+        <p>Toca cada foto para descubrir un mensaje...</p>
+
+        <div class="gallery">
+            
+            <div class="card" onclick="voltear(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="foto1.jpeg" alt="☾☼">
+                        <p>Los momentos </p>
+                    </div>
+                    <div class="card-back">
+                        <h3>𖤓</h3>
+                        <p>Entiendo que muchas veces es dificil y muchas veces la verdad ya no puedo ni conmigo misma...y te pido una disculpa muy grande por todo eso</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="voltear(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="foto5.jpeg" alt="𓆉">
+                        <p>más importantes </p>
+                    </div>
+                    <div class="card-back">
+                        <h3>♡</h3>
+                        <p>Perdón si llegó a ser dificil,se que no soy perfecta pero soy yo misma contigo y no quiero dejar que eso terminé porque realmente me importas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="voltear(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="foto4.jpeg" alt="☾☼">
+                        <p>contigo 𖤓♡☾</p>
+                    </div>
+                    <div class="card-back">
+                        <h3>☾</h3>
+                        <p>Espero poder mejorar ,no quiero perderte porque te necesito...te amo</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="spotify-section">
+            <a href="https://open.spotify.com/playlist/7HcJSWRIjbewUAmujlCoBN?si=4b1c6f56da1a4124&pt=24c5dc3cd539bd7f0bc7aaef4c90af8c" class="spotify-btn" target="_blank">✮ Espero te guste ✮</a>
+        </div>
+    </div>
+
+    <script>
+        function validar() {
+            const clave = document.getElementById("pass").value;
+            if (clave === '23-12-25') { // CAMBIA '23-12-25' por tu clave
+                document.getElementById("bloqueo").style.display = "none";
+                document.getElementById("contenido").style.display = "block";
+            } else {
+                alert("Clave incorrecta...");
+            }
+        }
+
+        function voltear(elemento) {
+            elemento.classList.toggle("flipped");
+        }
+    </script>
+</body>
+</html>
